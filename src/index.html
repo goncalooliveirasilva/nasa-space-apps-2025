@@ -8,7 +8,6 @@
   </head>
   <body>
     <canvas class="webgl"></canvas>
-    <canvas class="webgl"></canvas>
 
     <section class="section intro">
       <div class="intro-content">
@@ -88,8 +87,15 @@
           transport.
         </p>
       </div>
+      <div id="colorbar-container">
+        <div id="gradient-wrapper">
+          <canvas id="colorBar" width="40" height="300"></canvas>
+          <div id="units">molecules/cm²</div>
+        </div>
+        <div id="labels"></div>
+      </div>
     </section>
-    <footer>Made by</footer>
+    <footer>Made with ❤️ by António Santos and Gonçalo Silva</footer>
     <script type="module" src="./index.js"></script>
   </body>
 </html>

@@ -15,30 +15,25 @@ export const createGlobe = (radius) => {
   return globe
 }
 
+export const CO_GLOBAL_MIN = 1e17
+export const CO_GLOBAL_MAX = 1e19
+
 export const createParticlesFromJSON = (jsonData, radius, size) => {
   const geometry = new THREE.BufferGeometry()
   const positions = []
   const colors = []
 
-  // Determine min/max for CO color mapping
-  const coValues = jsonData.map((d) => d.co)
-  const coMin = Math.min(...coValues)
-  const coMax = Math.max(...coValues)
-
-  // Just to be better for the eyes
-  const minimalDeviationFactor = 0.08
-
   jsonData.forEach((d) => {
     const pos = latLonToVector3(d.lat, d.lon, radius)
-    const x = pos.x + (Math.random() - 0.5) * minimalDeviationFactor
-    const y = pos.y + (Math.random() - 0.5) * minimalDeviationFactor
-    const z = pos.z + (Math.random() - 0.5) * minimalDeviationFactor
-    positions.push(x, y, z)
+    positions.push(pos.x, pos.y, pos.z)
 
-    // Map CO to color (blue -> red)
-    const t = Math.min(Math.max((d.co - coMin) / (coMax - coMin), 0), 1) // normalized value
+    // Map CO to color using global min/max
+    const t = Math.min(
+      Math.max((d.co - CO_GLOBAL_MIN) / (CO_GLOBAL_MAX - CO_GLOBAL_MIN), 0),
+      1,
+    )
     const color = new THREE.Color()
-    color.setHSL((1 - t) * 0.7, 1, 0.5) // 0.7=blue, 0=red
+    color.setHSL((1 - t) * 0.7, 1, 0.5) // blue -> green -> red
     colors.push(color.r, color.g, color.b)
   })
 
@@ -52,7 +47,7 @@ export const createParticlesFromJSON = (jsonData, radius, size) => {
     size: size,
     vertexColors: true,
     transparent: true,
-    opacity: 0.6,
+    opacity: 1,
     depthWrite: false,
   })
 

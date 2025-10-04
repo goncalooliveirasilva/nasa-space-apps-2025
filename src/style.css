@@ -159,3 +159,39 @@ body {
 footer {
   padding-top: 200%;
 }
+
+#colorbar-container {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  color: white;
+  font-family: sans-serif;
+  margin-top: 180%;
+  padding-right: 5%;
+}
+
+#gradient-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#colorBar {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+#units {
+  margin-top: 5px;
+}
+
+#labels {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 300px;
+  margin-left: 10px;
+}

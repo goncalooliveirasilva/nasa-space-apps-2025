@@ -3,13 +3,19 @@ import scene from './core/scene.js'
 import camera from './core/camera.js'
 import renderer from './core/renderer.js'
 import sizes, { setupResize } from './core/size.js'
-import { createGlobe, createParticlesFromJSON } from './objects/globe.js'
+import {
+  createGlobe,
+  createParticlesFromJSON,
+  CO_GLOBAL_MAX,
+  CO_GLOBAL_MIN,
+} from './objects/globe.js'
 import {
   animateSatellites,
   animateTitle,
   animateText,
 } from './controls/animations.js'
 import { createBackgroundParticles } from './objects/particles.js'
+import { drawColorBar } from './utils.js'
 import data from '../data/json_files/MOP03JM-202104-L3V95.9.3.beta.json'
 
 // Background particles
@@ -46,6 +52,10 @@ document.querySelector('.scroll-btn').addEventListener('click', () => {
   })
 })
 
+// Linear Gradient
+drawColorBar(CO_GLOBAL_MIN, CO_GLOBAL_MAX)
+
+// Clock
 const clock = new THREE.Clock()
 
 // Earth rotation
