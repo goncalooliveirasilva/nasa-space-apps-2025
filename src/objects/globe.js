@@ -53,7 +53,7 @@ export const createParticlesFromJSON = (jsonData, radius, size) => {
     size: size,
     vertexColors: true,
     transparent: true,
-    opacity: 0.5,
+    opacity: 0.6,
     depthWrite: false,
   })
 

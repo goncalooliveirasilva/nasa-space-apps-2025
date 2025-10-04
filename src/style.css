@@ -47,7 +47,7 @@ body {
   max-width: 900px;
   margin: 0 auto;
   text-align: center;
-  padding-bottom: 20%;
+  padding-bottom: 10%;
 }
 
 .intro-content h1 {
@@ -219,4 +219,66 @@ footer {
 
 body.loading {
   overflow: hidden;
+}
+
+/* Slider container */
+#slider-container {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 0%;
+  margin-bottom: 0%;
+  padding-top: 175%;
+}
+
+/* Slider label */
+#sliderLabel {
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+}
+
+/* Month slider input */
+#monthSlider {
+  width: 200px;
+}
+
+/* Play/Pause button */
+#playPauseBtn {
+  margin-top: 10px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.parteners img {
+  width: 30%;
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
+
+#site-footer {
+  text-align: center;
+  padding: 15px 10px;
+  color: #ffffff;
+  font-size: 0.9rem;
+  padding-top: 200%;
+  padding-bottom: 2%;
+}
+
+#site-footer a {
+  color: #00bfff;
+  text-decoration: none;
+  margin: 0 5px;
+}
+
+#site-footer a:hover {
+  text-decoration: underline;
+}
+
+#site-footer .footer-content p {
+  margin: 5px 0;
 }

@@ -25,7 +25,13 @@
           Understand the global pattern of pollution and how CO moves through
           the atmosphere.
         </p>
-
+        <div class="parteners">
+          <!-- https://commons.wikimedia.org/wiki/File:Space_Apps_Motif_Logo_-_2-Color_White.png -->
+          <img
+            src="Colorway2-Color_White3x.width-440.jpegquality-60.png"
+            alt="Nasa Space Apps Challenge Logo"
+          />
+        </div>
         <button class="scroll-btn" aria-label="Scroll to satellites">▼</button>
       </div>
 
@@ -94,11 +100,6 @@
         </p>
       </div>
 
-      <div id="slider-container">
-        <input type="range" id="monthSlider" min="0" max="0" value="0" />
-        <div id="sliderLabel"></div>
-      </div>
-
       <div id="colorbar-container">
         <div id="gradient-wrapper">
           <canvas id="colorBar" width="40" height="300"></canvas>
@@ -107,7 +108,34 @@
         <div id="labels"></div>
       </div>
     </section>
-    <footer>Made with ❤️ by António Santos and Gonçalo Silva</footer>
+    <div id="slider-container">
+      <div id="sliderLabel">Jan 2021</div>
+      <input type="range" id="monthSlider" min="0" max="0" value="0" step="1" />
+      <button id="playPauseBtn">Pause</button>
+    </div>
+    <footer id="site-footer">
+      <div class="footer-content">
+        <p>
+          🌍 This project was created for the
+          <strong>NASA Space Apps Challenge 2025</strong>.
+        </p>
+        <p>Made with ❤️ by António Santos and Gonçalo Silva</p>
+        <p>
+          Data source:
+          <a
+            href="https://search.earthdata.nasa.gov/search?q=MOPITT"
+            target="_blank"
+            >NASA EARTHDATA</a
+          >
+          |
+          <a
+            href="https://github.com/goncalooliveirasilva/nasa-space-apps-2025"
+            target="_blank"
+            >GitHub</a
+          >
+        </p>
+      </div>
+    </footer>
     <script type="module" src="./index.js"></script>
   </body>
 </html>
