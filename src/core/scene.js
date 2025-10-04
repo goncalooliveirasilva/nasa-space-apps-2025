@@ -1,5 +1,5 @@
-import * as THREE from 'three'
+import { Scene } from 'three'
 
-const scene = new THREE.Scene()
+const scene = new Scene()
 
 export default scene

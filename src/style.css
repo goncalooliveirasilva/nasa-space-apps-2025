@@ -1,28 +1,157 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
-html {
+html,
+body {
+  height: 100%;
+  font-family: Arial, Helvetica, sans-serif;
   background: #1e1a20;
+  color: #ffffff;
 }
 
 .webgl {
   position: fixed;
   top: 0;
   left: 0;
-  outline: none;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
 }
 
 .section {
   display: flex;
+  justify-content: center;
   align-items: center;
   height: 100vh;
+  width: 100%;
   position: relative;
-  font-family: Arial, Helvetica, sans-serif;
+  z-index: 1;
+  text-align: center;
+  padding: 0 10%;
+}
+
+.section.intro {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  padding: 8% 10%;
+  gap: 8rem;
+  min-height: 100vh;
+}
+
+.intro-content {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+  padding-bottom: 20%;
+}
+
+.intro-content h1 {
+  font-size: 8vmin;
+  margin-bottom: 1rem;
+}
+
+.intro-content h2 {
+  margin-top: 0;
+}
+
+.intro-content p {
+  font-size: 2.5vmin;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  padding-top: 4%;
+}
+
+.intro-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2rem;
+  width: 100%;
+}
+
+/* Satellite layout */
+.eos-satellites {
+  display: flex;
+  gap: 2rem;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.eos-satellites img {
+  flex: 1;
+  max-width: 300px;
+  height: auto;
+  object-fit: contain;
+}
+
+.satellite {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* center caption under image */
+  gap: 0.5rem; /* space between image and text */
+}
+
+.sat-caption {
+  font-size: 2vmin;
+  font-weight: bold;
+  text-align: center;
   color: #ffffff;
-  text-transform: uppercase;
-  font-size: 7vmin;
-  padding-left: 10%;
-  padding-right: 10%;
+}
+
+.eos-text {
+  flex: 1;
+  max-width: 45%;
+  text-align: left;
+}
+
+.eos-text h1 {
+  font-size: 4vmin;
+  margin-bottom: 1rem;
+}
+
+.eos-text p {
+  font-size: 2.5vmin;
+  line-height: 1.6;
+}
+
+/* Optional: scroll button */
+.scroll-btn {
+  margin-top: 2rem;
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 3rem;
+  cursor: pointer;
+  animation: bounce 1.5s infinite;
+  transition: transform 0.2s;
+}
+
+.scroll-btn:hover {
+  transform: scale(1.2);
+}
+
+@keyframes bounce {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(10px);
+  }
+  60% {
+    transform: translateY(5px);
+  }
+}
+
+.terra-detail {
+  padding-top: 100%;
 }

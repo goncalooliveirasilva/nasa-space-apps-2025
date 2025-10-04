@@ -1,13 +1,22 @@
 import gsap from 'gsap'
 
-export function animateSection(section, camera) {
-  // if (section === 0) {
-  //   gsap.to(camera.position, { y: 0, duration: 1 });
-  // }
-  // if (section === 1) {
-  //   gsap.to(camera.position, { y: -10, duration: 1 });
-  // }
-  // if (section === 2) {
-  //   gsap.to(camera.position, { y: -20, duration: 1 });
-  // }
+export function animateSatellites() {
+  const satellites = document.querySelectorAll('.satellite img')
+
+  satellites.forEach((sat) => {
+    const randomDuration = 1.3 + Math.random() * 0.4
+    const randomY = 10 + Math.random() * 10
+    const randomRotation = 1 + Math.random() * 2
+    const randomDelay = Math.random() * 1
+
+    gsap.to(sat, {
+      y: -randomY,
+      rotation: randomRotation,
+      duration: randomDuration,
+      repeat: -1,
+      yoyo: true,
+      ease: 'power1.inOut',
+      delay: randomDelay,
+    })
+  })
 }

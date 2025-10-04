@@ -8,17 +8,82 @@
   </head>
   <body>
     <canvas class="webgl"></canvas>
+    <canvas class="webgl"></canvas>
 
-    <section class="section">
-      <h1>section 1</h1>
-    </section>
-    <section class="section">
-      <h2>section 2</h2>
-    </section>
-    <section class="section">
-      <h2>section 3</h2>
-    </section>
+    <section class="section intro">
+      <div class="intro-content">
+        <h1>MOPITT</h1>
+        <h2>(Measurement of Pollution in the Troposphere)</h2>
+        <p>
+          Explore the measurements of Carbon Monoxide (CO) in the troposphere
+          collected by the MOPITT instrument onboard the Terra Spacecraft.
+          Understand the global pattern of pollution and how CO moves through
+          the atmosphere.
+        </p>
 
+        <button class="scroll-btn" aria-label="Scroll to satellites">▼</button>
+      </div>
+
+      <div class="intro-container" id="eos-section">
+        <div class="eos-text">
+          <h1>NASA Earth Observing System</h1>
+          <p>
+            A series of coordinated polar-orbiting satellites that monitor
+            Earth's climate and atmospheric conditions.
+          </p>
+        </div>
+        <!-- Satellites row -->
+        <div class="eos-satellites">
+          <div class="satellite">
+            <img
+              src="./satellites/Terra_spacecraft_model.png"
+              alt="Terra Satellite"
+            />
+            <div class="sat-caption">Terra</div>
+          </div>
+          <div class="satellite">
+            <img
+              src="./satellites/Aqua_spacecraft_model.png"
+              alt="Aqua Satellite"
+            />
+            <div class="sat-caption">Aqua</div>
+          </div>
+          <div class="satellite">
+            <img
+              src="./satellites/Aura_spacecraft_model.png"
+              alt="Aura Satellite"
+            />
+            <div class="sat-caption">Aura</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Terra detail and MOPITT info -->
+      <div class="terra-detail">
+        <!-- <div class="satellite">
+          <img
+            src="./satellites/Terra_spacecraft_model.png"
+            alt="Terra Satellite"
+          />
+        </div> -->
+        <div class="terra-text">
+          <h2>Terra Satellite</h2>
+          <p>
+            Terra carries multiple instruments including
+            <strong>MOPITT</strong> which monitors global carbon monoxide.
+          </p>
+        </div>
+      </div>
+
+      <div class="mopitt-info">
+        <h2>MOPITT Instrument</h2>
+        <p>
+          MOPITT provides global measurements of CO concentrations in the
+          troposphere, helping us track air pollution and understand atmospheric
+          transport.
+        </p>
+      </div>
+    </section>
     <script type="module" src="./index.js"></script>
   </body>
 </html>
