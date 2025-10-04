@@ -3,56 +3,67 @@ import h5py
 import numpy as np
 import json
 
-input_folder = "./he5_files"   # your folder with .he5
-output_folder = "./json_files"
-os.makedirs(output_folder, exist_ok=True)
+# Input and output folders
+INPUT_FOLDER = "./he5_files"
+OUTPUT_FOLDER = "./json_files"
+os.makedirs(OUTPUT_FOLDER, exist_ok=True)
 
-for filename in os.listdir(input_folder):
-    if not filename.endswith(".he5"):
-        continue
-
+def convert_he5_to_json(filename):
     print(f"Processing {filename}...")
-    file_path = os.path.join(input_folder, filename)
+    file_path = os.path.join(INPUT_FOLDER, filename)
 
     with h5py.File(file_path, "r") as f:
         group = f["/HDFEOS/GRIDS/MOP03/Data Fields"]
 
-        # Latitude & Longitude
+        # Latitude & Longitude arrays (1D)
         lat = group["Latitude"][:]
         lon = group["Longitude"][:]
 
         # CO Total Column: average Day/Night
         co_day = group["RetrievedCOTotalColumnDay"][:]
         co_night = group["RetrievedCOTotalColumnNight"][:]
-        fillvalue_co = group["RetrievedCOTotalColumnDay"].attrs["_FillValue"]
+        fv_co = group["RetrievedCOTotalColumnDay"].attrs["_FillValue"]
 
-        co_data = (co_day + co_night) / 2
-        co_data = np.where(co_data == fillvalue_co, np.nan, co_data)
+        # Replace fill values with NaN
+        co_day = np.where(co_day == fv_co, np.nan, co_day)
+        co_night = np.where(co_night == fv_co, np.nan, co_night)
+        co_data = np.nanmean(np.stack([co_day, co_night]), axis=0)
 
         # Temperature: average Day/Night
         temp_day = group["RetrievedSurfaceTemperatureDay"][:]
         temp_night = group["RetrievedSurfaceTemperatureNight"][:]
-        fillvalue_temp = group["RetrievedSurfaceTemperatureDay"].attrs["_FillValue"]
-        temp_data = (temp_day + temp_night) / 2
-        temp_data = np.where(temp_data == fillvalue_temp, np.nan, temp_data)
+        fv_temp = group["RetrievedSurfaceTemperatureDay"].attrs["_FillValue"]
 
-        # Flatten and create JSON list
-        json_list = []
-        for i in range(lat.size):
-            if np.isnan(co_data.flat[i]):
-                continue
-            entry = {
-                "lat": float(lat.flat[i]),
-                "lon": float(lon.flat[i]),
-                "co": float(co_data.flat[i]),
-                "temp": float(temp_data.flat[i])
-            }
-            json_list.append(entry)
+        temp_day = np.where(temp_day == fv_temp, np.nan, temp_day)
+        temp_night = np.where(temp_night == fv_temp, np.nan, temp_night)
+        temp_data = np.nanmean(np.stack([temp_day, temp_night]), axis=0)
+
+        # Make meshgrid matching the data shape
+        nlat, nlon = co_data.shape
+        lat_grid = np.linspace(lat.min(), lat.max(), nlat)
+        lon_grid = np.linspace(lon.min(), lon.max(), nlon)
+        LON, LAT = np.meshgrid(lon_grid, lat_grid)
+
+        # Flatten into JSON list
+        data = []
+        for i in range(nlat):
+            for j in range(nlon):
+                if not np.isnan(co_data[i, j]) and not np.isnan(temp_data[i, j]):
+                    data.append({
+                        "lat": float(LAT[i, j]),
+                        "lon": float(LON[i, j]),
+                        "co": float(co_data[i, j]),
+                        "temp": float(temp_data[i, j])
+                    })
 
         # Save JSON
-        json_filename = filename.replace(".he5", ".json")
-        json_path = os.path.join(output_folder, json_filename)
-        with open(json_path, "w") as outfile:
-            json.dump(json_list, outfile)
+        out_file = os.path.join(OUTPUT_FOLDER, filename.replace(".he5", ".json"))
+        with open(out_file, "w") as f_out:
+            json.dump(data, f_out)
 
-        print(f"Saved {len(json_list)} points to {json_filename}")
+        print(f"Saved {len(data)} points to {out_file}")
+
+# Run for all HE5 files in folder
+for fname in os.listdir(INPUT_FOLDER):
+    if fname.endswith(".he5"):
+        convert_he5_to_json(fname)

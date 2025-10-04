@@ -25,12 +25,18 @@ export const createParticlesFromJSON = (jsonData, radius, size) => {
   const coMin = Math.min(...coValues)
   const coMax = Math.max(...coValues)
 
+  // Just to be better for the eyes
+  const minimalDeviationFactor = 0.08
+
   jsonData.forEach((d) => {
     const pos = latLonToVector3(d.lat, d.lon, radius)
-    positions.push(pos.x, pos.y, pos.z)
+    const x = pos.x + (Math.random() - 0.5) * minimalDeviationFactor
+    const y = pos.y + (Math.random() - 0.5) * minimalDeviationFactor
+    const z = pos.z + (Math.random() - 0.5) * minimalDeviationFactor
+    positions.push(x, y, z)
 
     // Map CO to color (blue -> red)
-    const t = Math.min(Math.max((d.co - coMin) / (coMax - coMin), 0), 1)
+    const t = Math.min(Math.max((d.co - coMin) / (coMax - coMin), 0), 1) // normalized value
     const color = new THREE.Color()
     color.setHSL((1 - t) * 0.7, 1, 0.5) // 0.7=blue, 0=red
     colors.push(color.r, color.g, color.b)
@@ -46,9 +52,8 @@ export const createParticlesFromJSON = (jsonData, radius, size) => {
     size: size,
     vertexColors: true,
     transparent: true,
-    opacity: 1,
+    opacity: 0.6,
     depthWrite: false,
-    blending: THREE.AdditiveBlending,
   })
 
   return new THREE.Points(geometry, material)

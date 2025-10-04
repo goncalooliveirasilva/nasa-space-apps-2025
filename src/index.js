@@ -10,7 +10,7 @@ import {
   animateText,
 } from './controls/animations.js'
 import { createBackgroundParticles } from './objects/particles.js'
-import data from '../data/json_files/MOP03JM-200308-L3V95.9.3.json'
+import data from '../data/json_files/MOP03JM-202104-L3V95.9.3.beta.json'
 
 // Background particles
 scene.add(createBackgroundParticles())
@@ -23,7 +23,7 @@ scene.add(globeGroup)
 
 const globe = createGlobe(3)
 globe.position.y = -distance * 3.5
-const globeParticles = createParticlesFromJSON(data, 3.1, 1)
+const globeParticles = createParticlesFromJSON(data, 3.01, 0.1)
 globeParticles.position.y = -distance * 3.5
 globeGroup.add(globe, globeParticles)
 
@@ -49,7 +49,7 @@ document.querySelector('.scroll-btn').addEventListener('click', () => {
 const clock = new THREE.Clock()
 
 // Earth rotation
-const rotationPeriod = 20 // uma rotacao a cada x segundos
+const rotationPeriod = 60 // uma rotacao a cada x segundos
 const earthRotationSpeed = (2 * Math.PI) / rotationPeriod
 
 // Globe tilt
