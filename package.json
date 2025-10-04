@@ -1,0 +1,29 @@
+{
+  "name": "nasa-space-apps-2025",
+  "version": "1.0.0",
+  "description": "Website for the Animation Celebration of Terra Data! challenge of the Nasa Space Apps Challenge 2025",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/goncalooliveirasilva/nasa-space-apps-2025.git"
+  },
+  "author": "António Santos and Gonçalo Silva",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/goncalooliveirasilva/nasa-space-apps-2025/issues"
+  },
+  "homepage": "https://github.com/goncalooliveirasilva/nasa-space-apps-2025#readme",
+  "dependencies": {
+    "gsap": "^3.13.0",
+    "three": "^0.180.0",
+    "vite": "^7.1.9"
+  },
+  "devDependencies": {
+    "prettier": "^3.6.2"
+  }
+}
