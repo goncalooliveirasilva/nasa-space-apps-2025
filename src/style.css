@@ -152,6 +152,10 @@ body {
   }
 }
 
-.terra-detail {
+/* .terra-detail {
   padding-top: 100%;
+} */
+
+footer {
+  padding-top: 200%;
 }
