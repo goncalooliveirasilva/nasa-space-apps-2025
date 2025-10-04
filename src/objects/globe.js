@@ -23,9 +23,15 @@ export const createParticlesFromJSON = (jsonData, radius, size) => {
   const positions = []
   const colors = []
 
+  // Just to be better for the eyes
+  const minimalDeviationFactor = 0.05
+
   jsonData.forEach((d) => {
     const pos = latLonToVector3(d.lat, d.lon, radius)
-    positions.push(pos.x, pos.y, pos.z)
+    const x = pos.x + (Math.random() - 0.5) * minimalDeviationFactor
+    const y = pos.y + (Math.random() - 0.5) * minimalDeviationFactor
+    const z = pos.z + (Math.random() - 0.5) * minimalDeviationFactor
+    positions.push(x, y, z)
 
     // Map CO to color using global min/max
     const t = Math.min(
@@ -47,7 +53,7 @@ export const createParticlesFromJSON = (jsonData, radius, size) => {
     size: size,
     vertexColors: true,
     transparent: true,
-    opacity: 1,
+    opacity: 0.5,
     depthWrite: false,
   })
 
