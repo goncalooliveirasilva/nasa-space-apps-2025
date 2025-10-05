@@ -17,6 +17,11 @@ import {
 import { createBackgroundParticles } from './objects/particles.js'
 import { drawColorBar } from './utils.js'
 import { latLonToVector3 } from './utils.js'
+import { setupCards } from './cards.js'
+
+document.addEventListener('DOMContentLoaded', () => {
+  setupCards()
+})
 
 const DISTANCE = 10
 
