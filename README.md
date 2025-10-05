@@ -55,6 +55,7 @@ Given the time constraints, we focused on the core globe visualization and datas
 - Improve **educational storytelling** elements.
 - Allow users to **rotate, zoom, and explore the globe interactively**.
 - Minor visual wobble in globe rotation due to tilt + Y-axis rotation — can be improved in future versions.
+- **Improve particle mapping quality**: better handling of missing or fill values, and improved color scaling.
 
 ## 🧰 Tech Stack
 
