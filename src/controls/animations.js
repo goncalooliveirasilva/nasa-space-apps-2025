@@ -52,16 +52,16 @@ export const animateTitle = () => {
 }
 
 export const animateText = () => {
-  const textElements = document.querySelectorAll('.intro-container > *') // all children of intro-container
+  const textElements = document.querySelectorAll('.intro-container > *')
 
   gsap.from(textElements, {
     y: -50,
     opacity: 0,
     duration: 1,
     ease: 'power2.out',
-    stagger: 0.2, // each element starts 0.2s after the previous
+    stagger: 0.2,
     scrollTrigger: {
-      trigger: '.intro-container', // when intro-container enters viewport
+      trigger: '.intro-container',
       start: 'top 80%',
       toggleActions: 'play none none none',
     },

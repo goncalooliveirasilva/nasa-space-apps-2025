@@ -157,7 +157,7 @@ monthSlider.addEventListener('input', (e) => {
 })
 
 // Automatic month cycling
-const autoPlayInterval = 1000 // ms
+const autoPlayInterval = 500 // ms
 function playNextMonth() {
   if (!autoPlay) return
 
@@ -202,8 +202,7 @@ export function tick() {
   const sectionIndex = scrollY / sizes.height
   camera.position.y = sectionIndex * -DISTANCE
 
-  globe.rotation.y = elapsedTime * earthRotationSpeed
-  globeParticles.rotation.y = elapsedTime * earthRotationSpeed
+  globeGroup.rotation.y = elapsedTime * earthRotationSpeed
 
   renderer.render(scene, camera)
   requestAnimationFrame(tick)
