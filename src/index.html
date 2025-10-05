@@ -3,7 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Scroll base animation</title>
+    <title>MOPITT Map</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alan+Sans:wght@300..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./style.css" />
   </head>
   <body>
@@ -54,6 +57,7 @@
             <img
               src="./satellites/Terra_spacecraft_model.png"
               alt="Terra Satellite"
+              onclick="showTerraCard()"
             />
             <div class="sat-caption">Terra</div>
           </div>
@@ -61,6 +65,7 @@
             <img
               src="./satellites/Aqua_spacecraft_model.png"
               alt="Aqua Satellite"
+              onclick="showAquaCard()"
             />
             <div class="sat-caption">Aqua</div>
           </div>
@@ -68,6 +73,7 @@
             <img
               src="./satellites/Aura_spacecraft_model.png"
               alt="Aura Satellite"
+              onclick="showAuraCard()"
             />
             <div class="sat-caption">Aura</div>
           </div>
@@ -85,11 +91,53 @@
         </div>
         <div class="satellite">
           <img
-            src="./satellites/main_terra_instruments_full.width-800_QpB1Fg8.jpg"
+            src="./satellites/main_terra_instruments_full.width-800_QpB1Fg8.png"
             alt="Terra Satellite"
           />
         </div>
       </div>
+
+      <div class="card" id="terraCard">
+        <h2>Terra satellite (EOS AM-1)</h2>
+        <p>
+          Launched in 1999, this is the <strong>first</strong> of the three EOS satellites. It follows a Sun-synchronous orbit(it's always "facing" the sun at the same angle) around the Earth at an altitude of around 705km.
+          It comes equipped with 5 sensors that monitor different aspects of the environment on Earth:
+        </p>
+        <ul>
+          <li>
+            <strong>ASTER</strong>: creates high-resolution images of clouds, ice, water and the land surface.
+          </li>
+          <li>
+            <strong>CERES</strong>: measures solar-reflected and Earth-emitted radiations.
+          </li>
+          <li>
+            <strong>MISR</strong>: measures the intensity of solar radiation reflected by the Earth.
+          </li>
+          <li>
+            <strong>MODIS</strong>: monitors Earth's atmosphere, oceans and land, tracking things like vegetation and changes in landscape and water levels.
+          </li>
+          <li>
+            <strong>MOPITT</strong>: measures the carbon monoxide levels in the troposphere. Tip: scroll down to see the map of its measurements.
+          </li>
+        </ul>
+        <p>Fun fact, Terra is the latin name for Earth!</p>
+        <button class="close-btn" onclick="closeTerraCard()">Close</button>
+      </div>
+
+      <div class="card" id="aquaCard">
+        <h2>Aqua satellite (EOS PM-1)</h2>
+        <p>This is the second satellite launched in the EOS program, launched in 2002. Its purpose is to study precipitation, evaporation and water in general. It was in a special formation with other satellites (including Aura) called "A-train", but has since left it in 2022 following fuel complications. Its now in free-drift mode.</p>
+        <p>Fun fact, Aqua comes from the latin word for water!</p>
+        <button class="close-btn" onclick="closeAquaCard()">Close</button>
+      </div>
+      
+      <div class="card" id="auraCard">
+        <h2>Aura satellite (EOS CH-1)</h2>
+        <p>The "youngest" of the 3 satellites, Aura was launched in 2004. It focuses on studying the Earth's air quality and ozone layer. In a similar vein to Aqua, it followed the "A-train" formation with other satellites, but has been drifting since 2023 for fuel saving purposes.</p>
+        <p>Fun fact, Aqua comes from the latin word for air!</p>
+        <button class="close-btn" onclick="closeAuraCard()">Close</button>
+      </div>
+
 
       <div class="mopitt-info">
         <h2>MOPITT Instrument</h2>
@@ -99,14 +147,16 @@
           transport.
         </p>
       </div>
-
-      <div id="colorbar-container">
+      
+        <div id="colorbar-container">
+        
         <div id="gradient-wrapper">
           <canvas id="colorBar" width="40" height="300"></canvas>
           <div id="units">molecules/cm²</div>
         </div>
         <div id="labels"></div>
       </div>
+      
     </section>
     <div id="slider-container">
       <div id="sliderLabel">Jan 2021</div>
@@ -125,17 +175,16 @@
           <a
             href="https://search.earthdata.nasa.gov/search?q=MOPITT"
             target="_blank"
-            >NASA EARTHDATA</a
-          >
+            >NASA EARTHDATA</a>
           |
           <a
             href="https://github.com/goncalooliveirasilva/nasa-space-apps-2025"
             target="_blank"
-            >GitHub</a
-          >
+            >GitHub</a>
         </p>
       </div>
     </footer>
+    <script src="./cards.js"></script>
     <script type="module" src="./index.js"></script>
   </body>
 </html>

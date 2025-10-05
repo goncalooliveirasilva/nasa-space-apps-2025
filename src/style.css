@@ -7,7 +7,7 @@
 html,
 body {
   height: 100%;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Alan Sans", Arial, Helvetica, sans-serif;
   background: #1e1a20;
   color: #ffffff;
 }
@@ -95,6 +95,10 @@ body {
   flex-direction: column;
   align-items: center; /* center caption under image */
   gap: 0.5rem; /* space between image and text */
+}
+
+.satellite img {
+  margin-top: 1rem;
 }
 
 .sat-caption {
@@ -281,4 +285,80 @@ body.loading {
 
 #site-footer .footer-content p {
   margin: 5px 0;
+}
+
+
+.card {
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  transform: translate(-50%, -50%) scale(0.8);
+  pointer-events: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  background: #33253a;
+  padding: 20px;
+  padding-left: 50px;
+  padding-right: 50px;
+  border-radius: 12px;
+  border-color: #402c4a;
+  border-width: 8px;
+  border-style: solid;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+  width: 40%;
+  min-height: 30%;
+  text-align: center;
+  z-index: 10000;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.card.active {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+  pointer-events: auto;
+}
+
+.card ul {
+  list-style: disc;
+  padding-left: 20px;
+  margin: 10px 0;
+  text-align: left;
+  width: 100%;
+}
+
+.overlay {
+  opacity: 0;
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  z-index: 999;
+  transition: opacity 0.3s ease;
+}
+
+.overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.close-btn {
+  margin-top: 15px;
+  background: royalblue;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 6px;
+  width: 10%;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.close-btn:hover {
+  background: mediumblue;
 }
