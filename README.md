@@ -2,8 +2,9 @@
 
 ## 🛰️ About the Project
 
-This project was developed for the **NASA International Space Apps Challenge 2025** under the theme **"Celebration of TERRA Data"**. Our goal is to make **MOPITT (Measurements of Pollution in the Troposphere)** data more accessible and engaging through an interactive platform.  
-We focused on **Carbon Monoxide (CO) Total Column** from the **MOPITT instrument aboard NASA's Terra Satellite**, providing a clear picture of atmospheric CO concentration trends between **2021-2025**.
+This project was developed for the N**ASA International Space Apps Challenge 2025**, under the theme "Celebration of TERRA Data."  
+It visualizes **MOPITT (Measurements of Pollution in the Troposphere)** data from NASA’s Terra satellite, focusing on **Carbon Monoxide (CO)** Total Column between 2021–2025.
+The goal is to make satellite data interactive, educational, and accessible to everyone.
 
 ## 💡 Inspiration
 
@@ -26,10 +27,30 @@ We also converted the `.h5` files into `.json` files each month to power the web
 
 Our website presents:
 
-- 🌎 An **interactive 3D globe** showing CO concentration using color-coded particles
-- 📊 **Dynamic data visualization** that updates across time (2021–2025)
+- 🌎 An **interactive 3D globe** showing CO concentration using color-coded particles.
+- 📊 **Dynamic data visualization** that updates across time (2021–2025).
 - 🧠 **Educational content** explaining MOPITT, CO measurements, and the importance of monitoring Earth’s atmosphere.
-- 🔍 User controls to explore specific years
+- 🔍 User controls to explore specific years.
+
+## 👩‍💻 Team
+
+**Team Name:** Spotlight  
+**Challenge Category**: Celebration of Terra Data  
+**Members**:
+
+- [António Santos](https://github.com/Apmds)
+- [Gonçalo Silva](https://github.com/goncalooliveirasilva)
+
+## 🧩 Notes from the Team
+
+This website is a **simplified prototype** — a **blueprint** for how MOPITT data could be explored interactively.  
+Given the time constraints, we focused on the core globe visualization and dataset integration.
+
+- Enhance the **UI/UX** with responsive design and smoother transitions.
+- Add **interactive legends** and tooltips to inspect CO levels in specific areas.
+- Optimize **data loading and performance** for larger datasets.
+- Integrate **additional datasets** for richer environmental context.
+- Improve **educational storytelling** elements.
 
 ## 🧰 Tech Stack
 
@@ -39,11 +60,8 @@ Data processing:
 
 Frontend:
 
-- HTML / CSS / JavaScript - Three.js
-
-Hosting:
-
-- Vercel
+- HTML / CSS / JavaScript
+- Three.js
 
 ## 🚀 How to Run Locally
 
@@ -61,15 +79,6 @@ npm install
 npm run dev
 ```
 
-## 👩‍💻 Team
-
-**Team Name:** Spotlight  
-**Challenge Category**: Celebration of Terra Data  
-**Members**:
-
-- [António Santos](https://github.com/Apmds)
-- [Gonçalo Silva](https://github.com/goncalooliveirasilva)
-
 ## 📚 References and Data Sources
 
 - [NASA Earthdata - MOPITT](https://search.earthdata.nasa.gov/search/granules?p=C3442474626-LARC_CLOUD&pg[0][v]=f&pg[0][gsk]=-start_date&q=MOPITT&tl=1629115200!4!!)
@@ -79,3 +88,7 @@ npm run dev
 - [Terra satellite image](https://commons.wikimedia.org/wiki/File:Terra_spacecraft_model.png)
 - [Aqua satellite image](https://commons.wikimedia.org/wiki/File:Aqua_spacecraft_model.png)
 - [Aura satellite image](https://commons.wikimedia.org/wiki/File:Aura_spacecraft_model.png)
+
+---
+
+_Built with curiosity and code during NASA Space Apps Challenge 2025 🌍✨_
