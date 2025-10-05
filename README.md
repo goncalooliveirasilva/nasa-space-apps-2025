@@ -51,6 +51,8 @@ Given the time constraints, we focused on the core globe visualization and datas
 - Optimize **data loading and performance** for larger datasets.
 - Integrate **additional datasets** for richer environmental context.
 - Improve **educational storytelling** elements.
+- Allow users to **rotate, zoom, and explore the globe interactively**.
+- Minor visual wobble in globe rotation due to tilt + Y-axis rotation — can be improved in future versions.
 
 ## 🧰 Tech Stack
 

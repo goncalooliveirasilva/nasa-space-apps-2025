@@ -103,7 +103,7 @@ playPauseBtn.addEventListener('click', () => {
 
 // Globe and particles
 const globe = createGlobe(3)
-globe.position.y = -DISTANCE * 3.5
+globe.position.y = -DISTANCE * 4.1
 globeGroup.add(globe)
 
 let currentMonthIndex = 0
@@ -112,7 +112,7 @@ let globeParticles = createParticlesFromJSON(
   3.02,
   0.1,
 )
-globeParticles.position.y = -DISTANCE * 3.5
+globeParticles.position.y = -DISTANCE * 4.1
 globeGroup.add(globeParticles)
 
 // Update function for particles
