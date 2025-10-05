@@ -1,31 +1,23 @@
-function showTerraCard() {
-    document.getElementById("terraCard").classList.add('active');
+window.showTerraCard = function () {
+  document.getElementById('terraCard').classList.add('active')
 }
 
-
-function closeTerraCard() {
-    document.getElementById("terraCard").classList.remove('active');
+window.closeTerraCard = function () {
+  document.getElementById('terraCard').classList.remove('active')
 }
 
-
-
-function showAquaCard() {
-    document.getElementById("aquaCard").classList.add('active');
+window.showAquaCard = function () {
+  document.getElementById('aquaCard').classList.add('active')
 }
 
-
-function closeAquaCard() {
-    document.getElementById("aquaCard").classList.remove('active');
+window.closeAquaCard = function () {
+  document.getElementById('aquaCard').classList.remove('active')
 }
 
-
-
-function showAuraCard() {
-    document.getElementById("auraCard").classList.add('active');
-
+window.showAuraCard = function () {
+  document.getElementById('auraCard').classList.add('active')
 }
 
-
-function closeAuraCard() {
-    document.getElementById("auraCard").classList.remove('active');
+window.closeAuraCard = function () {
+  document.getElementById('auraCard').classList.remove('active')
 }
