@@ -2,9 +2,11 @@
 
 ## 🛰️ About the Project
 
-This project was developed for the N**ASA International Space Apps Challenge 2025**, under the theme "Celebration of TERRA Data."  
+This project was developed for the **NASA International Space Apps Challenge 2025**, under the theme "Celebration of TERRA Data."  
 It visualizes **MOPITT (Measurements of Pollution in the Troposphere)** data from NASA’s Terra satellite, focusing on **Carbon Monoxide (CO)** Total Column between 2021–2025.
 The goal is to make satellite data interactive, educational, and accessible to everyone.
+
+[Live Demo](nasa-space-apps-2025-lilac.vercel.app)
 
 ## 💡 Inspiration
 
