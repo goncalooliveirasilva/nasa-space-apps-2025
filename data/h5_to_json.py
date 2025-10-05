@@ -29,14 +29,14 @@ def convert_he5_to_json(filename):
         co_night = np.where(co_night == fv_co, np.nan, co_night)
         co_data = np.nanmean(np.stack([co_day, co_night]), axis=0)
 
-        # Temperature: average Day/Night
-        temp_day = group["RetrievedSurfaceTemperatureDay"][:]
-        temp_night = group["RetrievedSurfaceTemperatureNight"][:]
-        fv_temp = group["RetrievedSurfaceTemperatureDay"].attrs["_FillValue"]
+        # # Temperature: average Day/Night
+        # temp_day = group["RetrievedSurfaceTemperatureDay"][:]
+        # temp_night = group["RetrievedSurfaceTemperatureNight"][:]
+        # fv_temp = group["RetrievedSurfaceTemperatureDay"].attrs["_FillValue"]
 
-        temp_day = np.where(temp_day == fv_temp, np.nan, temp_day)
-        temp_night = np.where(temp_night == fv_temp, np.nan, temp_night)
-        temp_data = np.nanmean(np.stack([temp_day, temp_night]), axis=0)
+        # temp_day = np.where(temp_day == fv_temp, np.nan, temp_day)
+        # temp_night = np.where(temp_night == fv_temp, np.nan, temp_night)
+        # temp_data = np.nanmean(np.stack([temp_day, temp_night]), axis=0)
 
         # Make meshgrid matching the data shape
         nlat, nlon = co_data.shape
@@ -46,14 +46,22 @@ def convert_he5_to_json(filename):
 
         # Flatten into JSON list
         data = []
+        # for i in range(nlat):
+        #     for j in range(nlon):
+        #         if not np.isnan(co_data[i, j]) and not np.isnan(temp_data[i, j]):
+        #             data.append({
+        #                 "lat": float(LAT[i, j]),
+        #                 "lon": float(LON[i, j]),
+        #                 "co": float(co_data[i, j]),
+        #                 "temp": float(temp_data[i, j])
+        #             })
         for i in range(nlat):
             for j in range(nlon):
-                if not np.isnan(co_data[i, j]) and not np.isnan(temp_data[i, j]):
+                if not np.isnan(co_data[i, j]):
                     data.append({
                         "lat": float(LAT[i, j]),
                         "lon": float(LON[i, j]),
                         "co": float(co_data[i, j]),
-                        "temp": float(temp_data[i, j])
                     })
 
         # Save JSON
