@@ -1,4 +1,4 @@
-# Visualizing Carbon Monoxide with MOPITT Data (2021-2025)
+# MOPITT Map
 
 ## 🛰️ About the Project
 
